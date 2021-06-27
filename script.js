@@ -137,10 +137,12 @@ const URL = (path) => `https://ncert.nic.in/${path}`;
 
     const { stderr } = await exec(`wget ${PDFLink} -O ${filename}.pdf`);
 
-    if (!!stderr) {
-      console.log("WGET Error");
-      console.log(stderr);
-    }
+    // if (!!stderr) {
+    //   console.log("WGET Error");
+    //   console.log(stderr);
+    // }
+
+    console.log(`Saved to ${filename}.pdf`);
 
     await browser.close();
   } catch (e) {
