@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const puppeteer = require("puppeteer");
 const inquirer = require("inquirer");
 const htmlEntities = require("html-entities");
