@@ -107,9 +107,15 @@ const URL = (path) => `https://ncert.nic.in/${path}`;
 
   const sectionLink = toc.find((x) => x[1] === htmlEntities.encode(section))[0];
 
-  console.log(URL(sectionLink));
+  await page.goto(URL(sectionLink), {
+    waitUntil: "networkidle0",
+  });
 
-  // console.log({ textbookLink });
+  const PDFLink = await page.evaluate(() => {
+    return document.querySelector("iframe").getAttribute("src");
+  });
+
+  console.log({ PDFLink });
 
   await browser.close();
 })();
